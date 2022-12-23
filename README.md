@@ -1,2 +1,3 @@
-# arch-dotFiles
-All config files for arch linux
+# archDotFiles
+
+All config files for arch and zsh shell.
