@@ -1,0 +1,31 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/aura.toml"
+]
+live_config_reload = true
+[font]
+size = 12
+
+[font.normal]
+family = "JetbrainsMono Nerd Font"
+style = "Regular"
+
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
+
+[window]
+opacity = 0.6
+blur = true
+
+padding = { x = 12, y = 12 }
+decorations = "Transparent"
+startup_mode = "Maximized"
