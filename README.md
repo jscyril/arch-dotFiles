@@ -2,7 +2,7 @@
 
 This repository contains configuration files and settings used on my **Arch Linux** system. It includes custom setup for your shell, editor, and terminal workspace to help you get a consistent environment quickly on any fresh install.
 
-These are commonly called *dotfiles* because they are hidden configuration files in Unix-like systems that control your shell, editor, and tool preferences. Managing them in a Git repository lets you sync your environment across machines and recreate your setup easily. ([ArchWiki][1])
+These are commonly called *dotfiles* because they are hidden configuration files in Unix-like systems that control your shell, editor, and tool preferences. Managing them in a Git repository lets you sync your environment across machines and recreate your setup easily.
 
 ## Table of Contents
 
