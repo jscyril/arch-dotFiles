@@ -342,7 +342,7 @@ themes {
         }
         
         ribbon_unselected {
-            base 150 150 170
+            base 255 255 255 
             background 40 40 55
             emphasis_0 162 119 255
             emphasis_1 100 100 120
@@ -428,7 +428,9 @@ themes {
     }
 }
 
+//theme "solarized-dark"
 theme "violet_night"
+
 // Choose the base input mode of zellij.
 // Default: normal
 // 
@@ -472,7 +474,7 @@ theme "violet_night"
 //   - true (default, enabled)
 //   - false
 // 
-// pane_frames false
+pane_frames false
  
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)
