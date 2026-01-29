@@ -85,7 +85,8 @@ alias lg="lazygit"
 # Shell management
 alias zshrc="\$EDITOR ~/.zshrc"
 alias szsh="source ~/.zshrc"
-export JAVA_HOME="/usr/lib/jvm/java-25-openjdk/"
+export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
+export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 zstyle ':autocomplete:*' ignored-input 'paru -S ##'
 zstyle ':autocomplete:*' ignored-input 'pacman'
 zstyle ':autocomplete:*' timeout 2.0
