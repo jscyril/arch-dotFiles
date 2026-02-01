@@ -88,6 +88,11 @@ alias szsh="source ~/.zshrc"
 export JAVA_HOME="/usr/lib/jvm/java-17-openjdk/"
 export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always --line-range :50 $realpath 2>/dev/null || ls --color $realpath 2>/dev/null'
+zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+alias fetch="fastfetch"
 # Tool initialization
 [[ -x $(command -v fzf) ]] && source <(fzf --zsh)
 [[ -x $(command -v zoxide) ]] && eval "$(zoxide init zsh)"
@@ -97,8 +102,3 @@ export CHROME_EXECUTABLE="/usr/bin/google-chrome-stable"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always --line-range :50 $realpath 2>/dev/null || ls --color $realpath 2>/dev/null'
-zstyle ':fzf-tab:*' switch-group '<' '>'
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-alias fetch="fastfetch"
