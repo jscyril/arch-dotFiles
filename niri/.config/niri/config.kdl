@@ -8,6 +8,7 @@
 // https://yalter.github.io/niri/Configuration:-Input
 spawn-at-startup "hypridle"
 spawn-at-startup "xwayland-satellite"
+spawn-sh-at-startup "vicinae server"
 spawn-at-startup "flameshot"
 spawn-at-startup "swaybg" "-i" "/home/jscyril/Downloads/a_black_and_white_picture_of_mountains_and_trees.png"
 spawn-at-startup "swaync"
@@ -388,7 +389,7 @@ binds {
     Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     Mod+Comma { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
-
+    //Ctrl+Space { spawn "vicinae" "toggle";}
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
     XF86AudioLowerVolume { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
@@ -454,7 +455,7 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     Mod+Return { spawn "alacritty"; }
-    Mod+D { spawn "rofi" "-show" "drun"; }
+    Mod+D repeat=false { spawn "vicinae" "toggle"; }
     Mod+Left  { focus-column-left; }
     Mod+Down  { focus-window-down; }
     Mod+Up    { focus-window-up; }
