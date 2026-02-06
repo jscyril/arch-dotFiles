@@ -82,7 +82,7 @@
         },
         {
           "keys": "Super + D",
-          "desc": "Run: rofi"
+          "desc": "Run: vicinae"
         }
       ]
     },

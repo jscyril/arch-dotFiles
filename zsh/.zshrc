@@ -6,10 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Start uwsm session manager if appropriate
-if uwsm check may-start && uwsm select; then
-	exec uwsm start default
-fi
+# # Start uwsm session manager if appropriate
+# if uwsm check may-start && uwsm select; then
+# 	exec uwsm start default
+# fi
 
 
 # Lines configured by zsh-newuser-install
@@ -102,3 +102,4 @@ alias fetch="fastfetch"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+

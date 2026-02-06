@@ -9,9 +9,11 @@
         "enableClipPreview": true,
         "enableClipboardHistory": true,
         "enableSettingsSearch": true,
+        "enableWindowsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
+            "firefox"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -33,11 +35,13 @@
         "volumeStep": 5
     },
     "bar": {
+        "autoHideDelay": 500,
+        "autoShowDelay": 150,
         "backgroundOpacity": 0.84,
         "barType": "floating",
         "capsuleOpacity": 1,
         "density": "default",
-        "exclusive": true,
+        "displayMode": "always_visible",
         "floating": true,
         "frameRadius": 12,
         "frameThickness": 8,
@@ -68,6 +72,7 @@
                     "id": "Workspace",
                     "labelMode": "index",
                     "occupiedColor": "secondary",
+                    "pillSize": 0.6,
                     "reverseScroll": false,
                     "showApplications": false,
                     "showBadge": true,
@@ -94,9 +99,12 @@
                     "compactMode": true,
                     "diskPath": "/",
                     "id": "SystemMonitor",
+                    "showCpuFreq": false,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
+                    "showDiskAvailable": false,
                     "showDiskUsage": false,
+                    "showDiskUsageAsPercent": false,
                     "showGpuTemp": false,
                     "showLoadAverage": false,
                     "showMemoryAsPercent": false,
@@ -107,7 +115,7 @@
                     "usePrimaryColor": false
                 },
                 {
-                    "colorizeIcons": false,
+                    "colorizeIcons": true,
                     "hideMode": "hidden",
                     "id": "ActiveWindow",
                     "maxWidth": 145,
@@ -143,6 +151,7 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "Flameshot"
                     ]
                 },
                 {
@@ -169,16 +178,11 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Brightness"
+                    "id": "Network"
                 },
                 {
-                    "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "none",
-                    "customIconPath": "",
-                    "enableColorization": false,
-                    "icon": "noctalia",
-                    "id": "ControlCenter",
-                    "useDistroLogo": false
+                    "displayMode": "onhover",
+                    "id": "Brightness"
                 },
                 {
                     "defaultSettings": {
@@ -194,6 +198,15 @@
                         "windowWidth": 1400
                     },
                     "id": "plugin:keybind-cheatsheet"
+                },
+                {
+                    "colorizeDistroLogo": false,
+                    "colorizeSystemIcon": "none",
+                    "customIconPath": "",
+                    "enableColorization": false,
+                    "icon": "noctalia",
+                    "id": "ControlCenter",
+                    "useDistroLogo": false
                 }
             ]
         }
@@ -386,6 +399,8 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
+        "batteryCriticalThreshold": 5,
+        "batteryWarningThreshold": 20,
         "criticalUrgencyDuration": 15,
         "enableKeyboardLayoutToast": true,
         "enableMediaToast": false,
@@ -473,12 +488,14 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 46,
+    "settingsVersion": 47,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
-        "cpuPollingInterval": 3000,
+        "cpuPollingInterval": 1000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
+        "diskAvailCriticalThreshold": 10,
+        "diskAvailWarningThreshold": 20,
         "diskCriticalThreshold": 90,
         "diskPollingInterval": 30000,
         "diskWarningThreshold": 80,
@@ -489,13 +506,12 @@
         "gpuWarningThreshold": 80,
         "loadAvgPollingInterval": 3000,
         "memCriticalThreshold": 90,
-        "memPollingInterval": 3000,
+        "memPollingInterval": 1000,
         "memWarningThreshold": 80,
-        "networkPollingInterval": 3000,
+        "networkPollingInterval": 1000,
         "swapCriticalThreshold": 90,
         "swapWarningThreshold": 80,
         "tempCriticalThreshold": 90,
-        "tempPollingInterval": 3000,
         "tempWarningThreshold": 80,
         "useCustomColors": false,
         "warningColor": ""
@@ -536,6 +552,7 @@
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
         "solidColor": "#1a1a2e",
+        "sortOrder": "name",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "random",
