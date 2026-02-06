@@ -7,13 +7,14 @@
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
 spawn-at-startup "hypridle"
+spawn-at-startup "protonvpn-app"
 spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "vicinae server"
 spawn-at-startup "flameshot"
 spawn-at-startup "swaybg" "-i" "/home/jscyril/Downloads/a_black_and_white_picture_of_mountains_and_trees.png"
 spawn-at-startup "swaync"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 input {
     keyboard {
         xkb {
@@ -127,7 +128,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "always"
+    center-focused-column "never"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -176,7 +177,7 @@ layout {
         // off
 
         // How many logical pixels the ring extends out from the windows.
-        width 1
+        width 0.5
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -214,7 +215,7 @@ layout {
         // If you enable the border, you probably want to disable the focus ring.
         off
 
-        width 4
+        width 1
         active-color "#ffc87f"
         inactive-color "#505050"
 
@@ -274,7 +275,7 @@ layout {
     struts {
         // left 64
         // right 64
-         top -35
+        // top -35
         // bottom 64
     }
 }
@@ -358,18 +359,18 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-// /-window-rule {
-//     geometry-corner-radius 12
-//     clip-to-geometry true
-// }
-
 window-rule {
-  // Rounded corners for a modern look.
-  geometry-corner-radius 8
-
-  // Clips window contents to the rounded corner boundaries.
-  clip-to-geometry true
+     geometry-corner-radius 12
+     clip-to-geometry true
 }
+
+// window-rule {
+//   // Rounded corners for a modern look.
+//   geometry-corner-radius 8
+//
+//   // Clips window contents to the rounded corner boundaries.
+//   clip-to-geometry true
+// }
 
 debug {
   // Allows notification actions and window activation from Noctalia.
@@ -385,9 +386,10 @@ layer-rule {
 
 binds {
     // Core Noctalia binds
+    Mod+F1 {spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:keybind-cheatsheet" "toggle" ; }
 
     // Mod+Space - Toggle application launcher
-    Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+D { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     // Mod+S - Toggle control center
     Mod+S { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
     // Mod+Comma - Toggle settings
@@ -478,7 +480,7 @@ binds {
     // Mod+Return - Open terminal (alacritty)
     Mod+Return { spawn "alacritty"; }
     // Mod+D - Toggle vicinae
-    Mod+D repeat=false { spawn "vicinae" "toggle"; }
+    Mod+Space repeat=false { spawn "vicinae" "toggle"; }
     // Mod+Left/H - Focus column to the left
     Mod+Left  { focus-column-left; }
     // Mod+Down/J - Focus window below

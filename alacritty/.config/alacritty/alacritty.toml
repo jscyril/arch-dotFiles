@@ -28,4 +28,4 @@ blur = true
 
 padding = { x = 12, y = 12 }
 decorations = "Transparent"
-startup_mode = "Maximized"
+startup_mode = "Windowed"
