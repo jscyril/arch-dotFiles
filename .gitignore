@@ -1,8 +1,8 @@
 *.zwc
 .zcompdump*
 .zsh_plugins.zsh
-./noctalia/.config/noctalia/colors.json
-./noctalia/.config/noctalia/colorschemes/*
-./noctalia/.config/noctalia/plugins/*
+noctalia/.config/noctalia/colors.json
+noctalia/.config/noctalia/colorschemes/*
+noctalia/.config/noctalia/plugins/*
 
 
