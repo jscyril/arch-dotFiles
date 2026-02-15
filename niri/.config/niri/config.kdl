@@ -375,6 +375,7 @@ window-rule {
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
+
 }
 
 // Set the overview wallpaper on the backdrop.
