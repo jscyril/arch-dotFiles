@@ -206,6 +206,12 @@
                     "icon": "noctalia",
                     "id": "ControlCenter",
                     "useDistroLogo": false
+                },
+                {
+                    "id": "plugin:keybind-cheatsheet"
+                },
+                {
+                    "id": "plugin:screen-recorder"
                 }
             ]
         }
