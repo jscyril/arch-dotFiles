@@ -93,6 +93,8 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview 'bat --color=always --line-range :50 
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 alias fetch="fastfetch"
+alias iGPU="supergfxctl -m Integrated"
+alias dGPU="supergfxctl -m Hybrid"
 # Tool initialization
 [[ -x $(command -v fzf) ]] && source <(fzf --zsh)
 [[ -x $(command -v zoxide) ]] && eval "$(zoxide init zsh)"
@@ -102,4 +104,5 @@ alias fetch="fastfetch"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 

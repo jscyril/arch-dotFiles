@@ -14,7 +14,7 @@ spawn-at-startup "flameshot"
 spawn-at-startup "swaybg" "-i" "/home/jscyril/Downloads/a_black_and_white_picture_of_mountains_and_trees.png"
 spawn-at-startup "swaync"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-// spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 input {
     keyboard {
         xkb {
