@@ -29,8 +29,3 @@ blur = true
 padding = { x = 12, y = 12 }
 decorations = "Transparent"
 startup_mode = "Windowed"
-
-[[keyboard.bindings]]
-key = "Return"
-mods = "Shift"
-chars = "\u001B\r"

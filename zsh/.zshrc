@@ -107,3 +107,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export QT_QPA_PLATFORMTHEME=qt6ct
+export PATH="$HOME/.local/bin:$PATH"
