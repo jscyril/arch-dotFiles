@@ -108,3 +108,7 @@ export NVM_DIR="$HOME/.nvm"
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export PATH="$HOME/.local/bin:$PATH"
+
+# skwd wallpaper daemon
+alias skwd="quickshell -p /home/jscyril/Downloads/rice_files/skwd-wall/daemon.qml"
+

@@ -397,9 +397,9 @@ binds {
 
 
     // #"Applications"
-    Mod+Return hotkey-overlay-title="Terminal" { spawn "alacritty"; }
+    Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Vicinae" repeat=false { spawn "vicinae" "toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock Screen" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+    Super+Alt+L hotkey-overlay-title="Lock Screen" { spawn "/home/jscyril/.local/share/quickshell-lockscreen/lock.sh"; }
     Super+Alt+S hotkey-overlay-title="Screen Reader" allow-when-locked=true { spawn-sh "pkill orca || exec orca"; }
 
     // #"Audio"
@@ -419,12 +419,12 @@ binds {
     XF86AudioNext hotkey-overlay-title="Next" allow-when-locked=true { spawn-sh "playerctl next"; }
 
     // #"Screenshots"
-    Mod+Shift+S hotkey-overlay-title="Selection" { spawn "flameshot" "gui"; }
-    Mod+Shift+3 hotkey-overlay-title="Full Screen" { spawn "flameshot" "full" "--clipboard" "--path" "~/Pictures/Screenshots"; }
-    Mod+Shift+4 hotkey-overlay-title="Delayed (2s)" { spawn "flameshot" "full" "--delay" "2000" "--clipboard" "--path" "~/Pictures/Screenshots"; }
-    Print hotkey-overlay-title="Screenshot" { screenshot; }
-    Ctrl+Print hotkey-overlay-title="Screen" { screenshot-screen; }
-    Alt+Print hotkey-overlay-title="Window" { screenshot-window; }
+    Mod+Shift+S hotkey-overlay-title="Selection" { spawn "/home/jscyril/.local/bin/screenshot.sh" "selection"; }
+    Mod+Shift+3 hotkey-overlay-title="Full Screen" { spawn "/home/jscyril/.local/bin/screenshot.sh" "full"; }
+    Mod+Shift+4 hotkey-overlay-title="Delayed (2s)" { spawn "/home/jscyril/.local/bin/screenshot.sh" "delay"; }
+    Mod+Shift+5 hotkey-overlay-title="Screenshot" { screenshot; }
+    Mod+Shift+6 hotkey-overlay-title="Screen" { screenshot-screen; }
+    Mod+Shift+7 hotkey-overlay-title="Window" { screenshot-window; }
 
     // #"Window Management"
     Mod+Q hotkey-overlay-title="Close Window" repeat=false { close-window; }
@@ -561,4 +561,8 @@ binds {
     // #"Vicinae"
     Mod+SemiColon hotkey-overlay-title="Toggle emojis" { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis" ; }
 
+    // #"Skwd-wall - wallpaper selector"
+    Mod+T hotkey-overlay-title="Skwd-wall" { 
+   	 spawn "quickshell" "ipc" "-p" "/home/jscyril/Downloads/rice_files/skwd-wall/daemon.qml" "call" "wallpaper" "toggle"
+     }
 }
