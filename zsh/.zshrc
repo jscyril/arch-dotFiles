@@ -2,6 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 
+# zmodload zsh/zprof
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -31,13 +32,13 @@ setopt PUSHD_IGNORE_DUPS         # Don't push duplicates
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jscyril/.zshrc'
 
-autoload -Uz compinit
+# autoload -Uz compinit
 # Run compinit with security checks once a day
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
-fi
+# if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+#   compinit
+# else
+#   compinit -C
+# fi
 # ${ZDOTDIR:-~}/.zshrc
 
 # Set the root name of the plugins files (.txt and .zsh) antidote will use.
@@ -98,12 +99,12 @@ alias dGPU="supergfxctl -m Hybrid"
 # Tool initialization
 [[ -x $(command -v fzf) ]] && source <(fzf --zsh)
 [[ -x $(command -v zoxide) ]] && eval "$(zoxide init zsh)"
-[[ -x $(command -v thefuck) ]] && eval $(thefuck --alias)
+# [[ -x $(command -v thefuck) ]] && eval $(thefuck --alias)
 [[ -x $(command -v atuin) ]] && eval "$(atuin init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
 export QT_QPA_PLATFORMTHEME=qt6ct
@@ -112,3 +113,9 @@ export PATH="$HOME/.local/bin:$PATH"
 # skwd wallpaper daemon
 alias skwd="quickshell -p /home/jscyril/Downloads/rice_files/skwd-wall/daemon.qml"
 
+# Display utilities
+alias check-refresh="/home/jscyril/scripts/check_refresh_rate.py"
+alias toggle-refresh="/home/jscyril/scripts/toggle_refresh_rate.py"
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri
+export AIRFLOW_HOME=/mnt/data/college/4_tri/DE/airflow
+# zprof
