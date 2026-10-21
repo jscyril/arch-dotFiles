@@ -21,7 +21,7 @@ setopt HIST_IGNORE_DUPS          # Don't record duplicate entries
 setopt HIST_IGNORE_SPACE         # Don't record commands starting with space
 setopt SHARE_HISTORY             # Share history between sessions
 unsetopt beep
-bindkey -e
+bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # Better directory navigation
@@ -105,17 +105,22 @@ alias dGPU="supergfxctl -m Hybrid"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm (lazy)
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm: --no-use skips nvm's slow default lookup (~600ms); put the default node on PATH ourselves
+export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/nvm.sh --no-use
+source /usr/share/nvm/bash_completion
+_v=default; for _i in 1 2 3 4 5; do [[ -f $NVM_DIR/alias/$_v ]] && _v=$(<$NVM_DIR/alias/$_v); done  # default -> lts/* -> lts/krypton -> v24.x
+[[ -d $NVM_DIR/versions/node/$_v/bin ]] && path=($NVM_DIR/versions/node/$_v/bin $path)
+unset _v _i
 
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 export PATH="$HOME/.local/bin:$PATH"
 
-# skwd wallpaper daemon
-alias skwd="quickshell -p /home/jscyril/Downloads/rice_files/skwd-wall/daemon.qml"
 
 # Display utilities
 alias check-refresh="/home/jscyril/scripts/check_refresh_rate.py"
 alias toggle-refresh="/home/jscyril/scripts/toggle_refresh_rate.py"
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=niri
-export AIRFLOW_HOME=/mnt/data/college/4_tri/DE/airflow
+alias files="nautilus --no-desktop --browser"
 # zprof
+export PATH="$HOME/.npm-global/bin:$PATH"

@@ -38,7 +38,7 @@
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
-        "volumeStep": 5
+        "volumeStep": 1
     },
     "bar": {
         "autoHideDelay": 500,
@@ -217,6 +217,12 @@
                     "id": "NotificationHistory",
                     "showUnreadBadge": true,
                     "unreadBadgeColor": "primary"
+                },
+                {
+                    "displayMode": "onhover",
+                    "iconColor": "none",
+                    "id": "Bluetooth",
+                    "textColor": "none"
                 },
                 {
                     "deviceNativePath": "",
@@ -625,7 +631,7 @@
             },
             {
                 "action": "suspend",
-                "command": "/home/jscyril/.local/share/quickshell-lockscreen/lock.sh &\n sleep 1 & \nsystemctl suspend",
+                "command": "/home/jscyril/.local/share/quickshell-lockscreen/lock.sh &\n sleep 2 & \nsystemctl suspend",
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": "2"

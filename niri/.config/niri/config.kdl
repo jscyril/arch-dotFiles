@@ -8,12 +8,13 @@
 // https://yalter.github.io/niri/Configuration:-Input
 spawn-at-startup "hypridle"
 // spawn-at-startup "protonvpn-app"
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "swaybg" "-i" "/home/jscyril/Downloads/a_black_and_white_picture_of_mountains_and_trees.png"  // noctalia draws the wallpaper now
 spawn-sh-at-startup "vicinae server"
-spawn-at-startup "flameshot"
-spawn-at-startup "swaync"
+// spawn-at-startup "swaync"  // drift is the notification daemon now
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "noctalia"
+spawn-at-startup "/home/jscyril/.local/bin/drift"
+// spawn-at-startup "quickshell" "-p" "/home/jscyril/.config/quickshell/desktop.qml"
 input {
     keyboard {
         xkb {
@@ -380,45 +381,44 @@ window-rule{
 //   clip-to-geometry true
 // }
 
-debug {
-  // Allows notification actions and window activation from Noctalia.
-  honor-xdg-activation-with-invalid-serial
-
-}
 
 // Set the overview wallpaper on the backdrop.
+// overview background: drift's dimmed, pixelated copy of the wallpaper
 layer-rule {
-  match namespace="^noctalia-overview*"
+  match namespace="^drift-backdrop$"
   place-within-backdrop true
 }
 
 
 binds {
     // #"Shell"
-    Mod+F1 hotkey-overlay-title="Keybind Cheatsheet" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:keybind-cheatsheet" "toggle"; }
-    Mod+D hotkey-overlay-title="App Launcher" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+S hotkey-overlay-title="Control Center" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
-    Mod+Comma hotkey-overlay-title="Settings" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    //     Mod+F1 hotkey-overlay-title="Keybind Cheatsheet" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "plugin:keybind-cheatsheet" "toggle"; }
+    Mod+D hotkey-overlay-title="App Launcher" { spawn "vicinae" "toggle"; }
+    Mod+S hotkey-overlay-title="Control Center" { spawn "/home/jscyril/.local/bin/drift" "toggle" "quick"; }
+    Mod+Comma hotkey-overlay-title="Settings" { spawn "/home/jscyril/.local/bin/drift" "settings"; }
     Mod+O hotkey-overlay-title="Overview" repeat=false { toggle-overview; }
     Mod+Shift+Slash hotkey-overlay-title="Hotkey Overlay" { show-hotkey-overlay; }
-    Mod+Z hotkey-overlay-title="Session Manager" { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionMenu" "toggle" ; }
+    Mod+Z hotkey-overlay-title="Session Manager" { spawn "qs" "-c" "drift" "ipc" "call" "drift" "session"; }
 
 
     // #"Applications"
     Mod+Return hotkey-overlay-title="Terminal" { spawn "kitty"; }
     Mod+Space hotkey-overlay-title="Vicinae" repeat=false { spawn "vicinae" "toggle"; }
-    Super+Alt+L hotkey-overlay-title="Lock Screen" { spawn "/home/jscyril/.local/share/quickshell-lockscreen/lock.sh"; }
+    Super+Alt+L hotkey-overlay-title="Lock Screen" { spawn-sh "qs -c drift ipc call drift lock || ~/.local/share/quickshell-lockscreen/lock.sh"; }
+    Mod+Alt+V hotkey-overlay-title="Clipboard History" { spawn "qs" "-c" "drift" "ipc" "call" "drift" "clipboard"; }
+    Print hotkey-overlay-title="Capture" { spawn "qs" "-c" "drift" "ipc" "call" "drift" "capture"; }
+    Mod+Shift+X hotkey-overlay-title="Capture" { spawn "qs" "-c" "drift" "ipc" "call" "drift" "capture"; }
     Super+Alt+S hotkey-overlay-title="Screen Reader" allow-when-locked=true { spawn-sh "pkill orca || exec orca"; }
 
     // #"Audio"
-    XF86AudioRaiseVolume hotkey-overlay-title="Vol Up" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume hotkey-overlay-title="Vol Down" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute hotkey-overlay-title="Mute" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-    XF86AudioMicMute hotkey-overlay-title="Mic Mute" allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioRaiseVolume hotkey-overlay-title="Vol Up" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "volumeUp"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Vol Down" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "volumeDown"; }
+    XF86AudioMute hotkey-overlay-title="Mute" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "volumeMute"; }
+    XF86AudioMicMute hotkey-overlay-title="Mic Mute" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "micMute"; }
 
     // #"Brightness"
-    XF86MonBrightnessUp hotkey-overlay-title="Bright Up" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown hotkey-overlay-title="Bright Down" allow-when-locked=true { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp hotkey-overlay-title="Bright Up" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "brightnessUp"; }
+    XF86MonBrightnessDown hotkey-overlay-title="Bright Down" allow-when-locked=true { spawn "qs" "-c" "drift" "ipc" "call" "drift" "brightnessDown"; }
 
     // #"Media"
     XF86AudioPlay hotkey-overlay-title="Play/Pause" allow-when-locked=true { spawn-sh "playerctl play-pause"; }
@@ -572,3 +572,5 @@ binds {
 
     // #"Skwd-wall - wallpaper selector"
 }
+
+include "noctalia.kdl"
