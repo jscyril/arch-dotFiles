@@ -4,6 +4,6 @@ zsh-users/zsh-completions kind:fpath path:src
 romkatv/zsh-bench kind:path
 olets/zsh-abbr  
 mattmc3/zfunctions
+Aloxaf/fzf-tab
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting 
-Aloxaf/fzf-tab
